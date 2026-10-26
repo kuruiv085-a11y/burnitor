@@ -117,3 +117,32 @@ not Next.js config:
 
 When assembled by the App Builder, these are configured for you (logo upload, color,
 font, and app name are injected at deploy time).
+Deriv Digit Consecutive Strategy Bot
+This repository contains a Deriv / Binary.com XML Trading Bot designed to execute trades on Synthetic Volatility Indices based on consecutive last-digit patterns.
+Strategy Overview
+The bot monitors the last digit of market ticks and counts consecutive occurrences of Even and Odd numbers:
+Under Market Entry:
+Monitors tick digits.
+When 5 consecutive Odd numbers (1, 3, 5, 7, 9) occur in a row, the bot triggers an UNDER trade entry point.
+Over Market Entry:
+Monitors tick digits.
+When 5 consecutive Even numbers (0, 2, 4, 6, 8) occur in a row, the bot triggers an OVER trade entry point.
+How to Install and Run
+Option 1: Using Deriv Bot / Binary Bot Platforms
+Go to dbot.deriv.com or bot.deriv.com.
+Log in to your Deriv demo or real account.
+Click on the Folder / Load icon on the top toolbar.
+Select Load from your computer / Local and upload the bot XML file (or paste the XML snippet).
+Adjust your stake and prediction settings if required.
+Click Run to start automated trading.
+Option 2: Using the HTML Interface
+Save the project files locally.
+Open index.html (or deriv_digit_bot.html) directly in any web browser.
+Click the Copy XML Code button.
+Paste the copied code directly into your Deriv Bot editor workspace.
+Technical Details
+Market Target: Synthetic Indices (e.g., Volatility 100 Index / R_100)
+Contract Type: Digits Over / Under
+Duration: 1 Tick
+Prediction Value: 5 (Default)
+Counters: Dynamically reset consecutive_even and consecutive_odd variables whenever the digit parity switches.
