@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deriv Consecutive Even/Odd Entry Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d43f3a;
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+            font-family: monospace;
+            font-size: 12px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .instructions {
+            background: #e9ecef;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Deriv Digit Strategy Bot (XML)</h1>
+    
+    <div class="instructions">
+        <h3>How to use:</h3>
+        <ol>
+            <li>Copy the XML code in the box below or click <strong>Copy XML Code</strong>.</li>
+            <li>Go to <a href="https://bot.deriv.com" target="_blank">Binary Bot (bot.deriv.com)</a> or <a href="https://dbot.deriv.com" target="_blank">Deriv Bot</a>.</li>
+            <li>Click the <strong>Folder icon</strong> (Load) on the top menu.</li>
+            <li>Select <strong>Load XML</strong> or paste the code directly.</li>
+            <li>Run the bot!</li>
+        </ol>
+        <p><strong>Strategy Rules:</strong></p>
+        <ul>
+            <li><strong>Under Contract:</strong> Triggers entry ONLY after <strong>5 Consecutive Odd digits</strong>.</li>
+            <li><strong>Over Contract:</strong> Triggers entry ONLY after <strong>5 Consecutive Even digits</strong>.</li>
+        </ul>
+    </div>
+
+    <button onclick="copyXml()">Copy XML Code</button>
+    <br><br>
+
+    <textarea id="xmlCode" readonly>
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="trade_definition" id="trade_def" x="0" y="0">
+    <statement name="TRADE_OPTIONS">
+      <block type="trade_definition_market" id="market">
+        <field name="MARKET_LIST">synthetic_index</field>
+        <field name="SUBMARKET_LIST">random_index</field>
+        <field name="SYMBOL_LIST">R_100</field>
+        <next>
+          <block type="trade_definition_tradetype" id="type">
+            <field name="TRADETYPE_LIST">digits</field>
+            <field name="TRADETYPECONCAT_LIST">overunder</field>
+            <next>
+              <block type="trade_definition_contracttype" id="contract">
+                <field name="TYPE_LIST">both</field>
+                <next>
+                  <block type="trade_definition_candleinterval" id="interval">
+                    <field name="CANDLEINTERVAL_LIST">60</field>
+                    <next>
+                      <block type="trade_definition_restartbuystrat" id="restart">
+                        <value name="TIME_MACHINE_ENABLED">
+                          <block type="logic_boolean" id="tm">
+                            <field name="BOOL">FALSE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="INITIALIZATION">
+      <block type="variables_set" id="set_consec_even">
+        <field name="VAR">consecutive_even</field>
+        <value name="VALUE">
+          <block type="math_number" id="n1"><field name="NUM">0</field></block>
+        </value>
+        <next>
+          <block type="variables_set" id="set_consec_odd">
+            <field name="VAR">consecutive_odd</field>
+            <value name="VALUE">
+              <block type="math_number" id="n2"><field name="NUM">0</field></block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="SUBMARKET">
+      <block type="trade_definition_tradeoptions" id="options">
+        <mutation has_first_barrier="true"></mutation>
+        <field name="DURATIONTYPE_LIST">t</field>
+        <value name="DURATION">
+      <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deriv Consecutive Even/Odd Entry Bot</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f9;
+            color: #333;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0,0,0,0.1);
+        }
+        h1 {
+            color: #d43f3a;
+        }
+        textarea {
+            width: 100%;
+            height: 300px;
+            font-family: monospace;
+            font-size: 12px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .instructions {
+            background: #e9ecef;
+            padding: 15px;
+            border-left: 5px solid #007bff;
+            margin-bottom: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            background-color: #28a745;
+            color: white;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+        }
+        button:hover {
+            background-color: #218838;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h1>Deriv Digit Strategy Bot (XML)</h1>
+    
+    <div class="instructions">
+        <h3>How to use:</h3>
+        <ol>
+            <li>Copy the XML code in the box below or click <strong>Copy XML Code</strong>.</li>
+            <li>Go to <a href="https://bot.deriv.com" target="_blank">Binary Bot (bot.deriv.com)</a> or <a href="https://dbot.deriv.com" target="_blank">Deriv Bot</a>.</li>
+            <li>Click the <strong>Folder icon</strong> (Load) on the top menu.</li>
+            <li>Select <strong>Load XML</strong> or paste the code directly.</li>
+            <li>Run the bot!</li>
+        </ol>
+        <p><strong>Strategy Rules:</strong></p>
+        <ul>
+            <li><strong>Under Contract:</strong> Triggers entry ONLY after <strong>5 Consecutive Odd digits</strong>.</li>
+            <li><strong>Over Contract:</strong> Triggers entry ONLY after <strong>5 Consecutive Even digits</strong>.</li>
+        </ul>
+    </div>
+
+    <button onclick="copyXml()">Copy XML Code</button>
+    <br><br>
+
+    <textarea id="xmlCode" readonly>
+<xml xmlns="https://developers.google.com/blockly/xml">
+  <block type="trade_definition" id="trade_def" x="0" y="0">
+    <statement name="TRADE_OPTIONS">
+      <block type="trade_definition_market" id="market">
+        <field name="MARKET_LIST">synthetic_index</field>
+        <field name="SUBMARKET_LIST">random_index</field>
+        <field name="SYMBOL_LIST">R_100</field>
+        <next>
+          <block type="trade_definition_tradetype" id="type">
+            <field name="TRADETYPE_LIST">digits</field>
+            <field name="TRADETYPECONCAT_LIST">overunder</field>
+            <next>
+              <block type="trade_definition_contracttype" id="contract">
+                <field name="TYPE_LIST">both</field>
+                <next>
+                  <block type="trade_definition_candleinterval" id="interval">
+                    <field name="CANDLEINTERVAL_LIST">60</field>
+                    <next>
+                      <block type="trade_definition_restartbuystrat" id="restart">
+                        <value name="TIME_MACHINE_ENABLED">
+                          <block type="logic_boolean" id="tm">
+                            <field name="BOOL">FALSE</field>
+                          </block>
+                        </value>
+                      </block>
+                    </next>
+                  </block>
+                </next>
+              </block>
+            </next>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="INITIALIZATION">
+      <block type="variables_set" id="set_consec_even">
+        <field name="VAR">consecutive_even</field>
+        <value name="VALUE">
+          <block type="math_number" id="n1"><field name="NUM">0</field></block>
+        </value>
+        <next>
+          <block type="variables_set" id="set_consec_odd">
+            <field name="VAR">consecutive_odd</field>
+            <value name="VALUE">
+              <block type="math_number" id="n2"><field name="NUM">0</field></block>
+            </value>
+          </block>
+        </next>
+      </block>
+    </statement>
+    <statement name="SUBMARKET">
+      <block type="trade_definition_tradeoptions" id="options">
+        <mutation has_first_barrier="true"></mutation>
+        <field name="DURATIONTYPE_LIST">t</field>
+        <value name="DURATION">
+                  
