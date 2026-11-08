@@ -1,0 +1,137 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#8f171d" />
+  <meta name="description" content="Vii Trader — a paper-trading strategy builder demo." />
+  <title>Vii Trader | Bot Builder</title>
+  <style>
+    :root{font-family:Inter,ui-sans-serif,system-ui,-apple-system,BlinkMacSystemFont,"Segoe UI",sans-serif;color:#211b1b;background:#f6f7f9;font-synthesis:none;text-rendering:optimizeLegibility;--red:#a51d24;--red-dark:#78151a;--ink:#221c1d;--muted:#77747a;--line:#e9e7e8;--green:#16865b;--surface:#fff;--shadow:0 12px 35px #32191a0b}*{box-sizing:border-box}body{margin:0;min-width:320px}.topbar{height:68px;background:linear-gradient(110deg,#84161b,#a51d24);color:white;display:flex;align-items:center;justify-content:space-between;padding:0 clamp(16px,4vw,48px);gap:20px}.brand{display:flex;align-items:center;gap:11px;font-weight:800;font-size:20px;letter-spacing:-.5px}.brand-mark{display:grid;place-items:center;width:34px;height:34px;background:#ffffff20;border:1px solid #ffffff35;border-radius:11px;font-size:18px}.top-right{display:flex;align-items:center;gap:12px}.demo-pill{border:1px solid #ffffff55;background:#ffffff18;border-radius:99px;padding:7px 12px;font-size:12px;font-weight:700}.balance{font-size:13px;font-weight:700}.avatar{display:grid;place-items:center;width:32px;height:32px;background:#fff;color:var(--red);font-weight:800;border-radius:50%}.nav{height:54px;background:#fff;border-bottom:1px solid var(--line);display:flex;align-items:stretch;padding:0 clamp(12px,4vw,48px);gap:8px;overflow-x:auto;scrollbar-width:none}.nav::-webkit-scrollbar{display:none}.nav button{white-space:nowrap;border:0;background:transparent;color:#716b6d;padding:0 16px;font:600 13px inherit;cursor:pointer;border-bottom:3px solid transparent}.nav button.active{color:var(--red);border-bottom-color:var(--red)}main{max-width:1440px;margin:0 auto;padding:26px clamp(14px,3vw,40px) 100px}.page-heading{display:flex;justify-content:space-between;align-items:flex-start;gap:16px;margin-bottom:20px}.eyebrow{font-size:11px;color:var(--red);font-weight:800;letter-spacing:1.5px;text-transform:uppercase}.page-heading h1{font-size:clamp(24px,3vw,32px);letter-spacing:-1px;margin:6px 0}.page-heading p{margin:0;color:var(--muted);font-size:14px}.button{border:0;border-radius:10px;padding:11px 16px;font-weight:750;font-size:13px;cursor:pointer;transition:transform .15s,filter .15s}.button:hover{filter:brightness(.96);transform:translateY(-1px)}.button-primary{background:var(--red);color:white;box-shadow:0 5px 12px #a51d2426}.button-secondary{background:#fff;border:1px solid var(--line);color:#4d4648}.button-stop{background:#fff0f0;color:#a21c24;border:1px solid #f1cfd1}.notice{display:flex;align-items:center;gap:10px;background:#fff8e9;border:1px solid #f3e2be;color:#755421;padding:11px 14px;border-radius:10px;font-size:12px;margin-bottom:18px}.notice strong{color:#5d4213}.workspace{display:grid;grid-template-columns:minmax(310px,390px) minmax(0,1fr);gap:18px;align-items:start}.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;box-shadow:var(--shadow)}.card-head{padding:17px 19px;border-bottom:1px solid var(--line);display:flex;align-items:center;justify-content:space-between;gap:10px}.card-title{font-size:15px;font-weight:800;margin:0}.card-subtitle{color:var(--muted);font-size:11px;margin-top:4px}.card-body{padding:18px}.step-label{display:flex;align-items:center;gap:9px;font-size:12px;font-weight:800;margin:2px 0 13px;color:#433b3d}.step-number{display:grid;place-items:center;width:23px;height:23px;border-radius:7px;background:#f9e9ea;color:var(--red);font-size:11px}.field-grid{display:grid;grid-template-columns:1fr 1fr;gap:12px}.field{min-width:0;margin-bottom:14px}.field.full{grid-column:1/-1}.field label{display:block;color:#716c70;font-size:11px;font-weight:700;margin-bottom:7px}.field select,.field input{width:100%;height:40px;border:1px solid #e4e0e2;border-radius:8px;background:#fff;padding:0 11px;color:#30292b;font:500 13px inherit;outline:none}.field select:focus,.field input:focus{border-color:#b94a50;box-shadow:0 0 0 3px #a51d2412}.helper{font-size:10px;color:#8a8588;margin-top:5px}.market-tag{display:inline-flex;align-items:center;gap:6px;padding:5px 8px;border-radius:6px;background:#f4f1f2;color:#655d60;font-size:10px;font-weight:700}.dot{width:7px;height:7px;border-radius:50%;background:#20a36f}.divider{height:1px;background:var(--line);margin:7px 0 16px}.contract-buttons{display:grid;grid-template-columns:repeat(3,1fr);gap:7px}.contract-buttons button{border:1px solid #e9e4e5;background:#fff;color:#5f575a;border-radius:8px;padding:9px 5px;font-weight:700;font-size:11px;cursor:pointer}.contract-buttons button.selected{border-color:#b53339;background:#fff3f3;color:#9e1d23;box-shadow:0 0 0 2px #a51d2410}.preview{background:#faf8f8;border:1px solid #eee9ea;padding:12px;border-radius:9px;margin:0 0 14px}.preview-top{font-size:10px;color:var(--muted);font-weight:700}.preview-main{display:flex;align-items:center;justify-content:space-between;margin-top:7px;font-size:13px;font-weight:800}.preview-main strong{color:var(--red)}.action-row{display:flex;gap:9px}.action-row .button{flex:1}.right-col{display:grid;gap:18px}.chart-card{overflow:hidden}.chart-top{display:flex;justify-content:space-between;align-items:flex-start;gap:12px}.symbol{font-weight:800;font-size:15px}.symbol small{display:block;color:var(--muted);font-size:11px;font-weight:500;margin-top:4px}.live-label{display:flex;align-items:center;gap:6px;color:#977129;font-size:10px;font-weight:800;background:#fff8e9;padding:6px 8px;border-radius:99px}.chart-area{height:210px;padding:14px 18px 4px;position:relative;background:linear-gradient(180deg,#fff,#fffafa)}.chart-area svg{width:100%;height:100%;overflow:visible}.chart-grid{stroke:#eee9ea;stroke-width:1}.chart-line{fill:none;stroke:#ad2930;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round}.chart-fill{fill:url(#fade)}.chart-labels{display:flex;justify-content:space-between;color:#aaa4a6;font-size:9px;padding:0 18px 14px}.market-stats{display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}.stat{padding:13px 17px;border-right:1px solid var(--line)}.stat:last-child{border:0}.stat span{font-size:10px;color:var(--muted)}.stat strong{display:block;margin-top:5px;font-size:13px}.builder-card .card-body{background:#fcfbfb;border-radius:0 0 14px 14px}.builder-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}.block-group{border-radius:10px;background:#fff;border:1px solid #e9e4e5;overflow:hidden}.block-heading{background:#971c22;color:white;font-size:11px;font-weight:800;padding:10px 12px}.block-content{padding:12px;display:grid;gap:9px}.logic-block{display:flex;align-items:center;justify-content:space-between;gap:8px;background:#f4f2f2;border:1px solid #ece8e9;border-radius:7px;padding:9px 10px;font-size:11px;color:#51494b}.logic-block b{color:#383032}.logic-block .value{color:#9e1c23;font-weight:800}.add-block{width:100%;border:1px dashed #d8c6c8;background:#fff;color:#8a5a5d;border-radius:7px;padding:8px;font-size:11px;font-weight:700;cursor:pointer}.activity{margin-top:18px}.activity-list{display:grid}.activity-row{display:grid;grid-template-columns:1fr auto auto;gap:16px;align-items:center;padding:13px 18px;border-bottom:1px solid #f0edee;font-size:12px}.activity-row:last-child{border:0}.activity-name{font-weight:700}.activity-meta{color:var(--muted);font-size:10px;margin-top:3px}.result{font-weight:800}.result.win{color:var(--green)}.result.loss{color:#b4343a}.empty{padding:24px;text-align:center;color:#8a8588;font-size:12px}.run-status{font-size:11px;color:var(--muted);margin-left:auto}.run-status.running{color:#b07814;font-weight:800}.footer-note{text-align:center;color:#9b9598;font-size:10px;padding:24px 12px}.mobile-run{display:none}.toast{position:fixed;right:20px;bottom:20px;background:#2d2627;color:#fff;padding:12px 16px;border-radius:10px;font-size:12px;box-shadow:var(--shadow);z-index:5;max-width:calc(100vw - 40px)}@media(max-width:850px){.workspace{grid-template-columns:1fr}.builder-grid{grid-template-columns:1fr 1fr}.topbar{height:60px}.nav{height:48px}main{padding-top:20px}.mobile-run{display:flex;position:fixed;z-index:4;bottom:0;left:0;right:0;background:#fff;border-top:1px solid var(--line);padding:11px max(14px,env(safe-area-inset-left)) calc(11px + env(safe-area-inset-bottom));gap:10px;box-shadow:0 -8px 24px #2518190b}.mobile-run .button{flex:1}.footer-note{padding-bottom:90px}}@media(max-width:520px){.topbar{padding:0 14px}.brand{font-size:18px}.balance{display:none}.nav{padding:0 8px}.nav button{padding:0 12px;font-size:12px}main{padding-left:12px;padding-right:12px}.page-heading{align-items:center}.page-heading p{font-size:12px;max-width:230px}.page-heading>.button{display:none}.field-grid{gap:9px}.card-body{padding:14px}.card-head{padding:14px}.builder-grid{grid-template-columns:1fr}.chart-area{height:170px}.activity-row{gap:8px;padding:12px}.market-stats .stat{padding:11px 12px}.market-stats .stat strong{font-size:12px}}
+  </style>
+</head>
+<body>
+  <header class="topbar">
+    <div class="brand"><span class="brand-mark" aria-hidden="true">V</span><span>vii trader</span></div>
+    <div class="top-right"><span class="demo-pill">PAPER DEMO</span><span class="balance" id="balance">Demo balance: $10,000.00</span><span class="avatar" aria-label="Vii Trader">V</span></div>
+  </header>
+  <nav class="nav" aria-label="Main navigation">
+    <button type="button">⌂ &nbsp;Dashboard</button><button type="button" class="active">▦ &nbsp;Bot Builder</button><button type="button">▤ &nbsp;Strategies</button><button type="button">◷ &nbsp;Activity</button>
+  </nav>
+  <main>
+    <div class="page-heading"><div><div class="eyebrow">Strategy workspace</div><h1>Bot Builder</h1><p>Configure a digit strategy and explore it in a paper-only simulation.</p></div><button class="button button-secondary" id="resetButton" type="button">↻ &nbsp;Reset strategy</button></div>
+    <div class="notice" role="note"><span aria-hidden="true">ⓘ</span><span><strong>Simulation only.</strong> Vii Trader does not connect to Deriv, place trades, or use live market data. Results are randomly simulated and are not predictions.</span></div>
+    <div class="workspace">
+      <section class="card" aria-labelledby="setup-title">
+        <div class="card-head"><div><h2 class="card-title" id="setup-title">Quick strategy</h2><div class="card-subtitle">Set up a paper-trading scenario</div></div><span class="market-tag"><i class="dot"></i> Demo mode</span></div>
+        <div class="card-body">
+          <div class="step-label"><span class="step-number">1</span> Market &amp; contract</div>
+          <div class="field-grid">
+            <div class="field full"><label for="market">Volatility market</label><select id="market"><option>Volatility 10 Index</option><option>Volatility 10 (1s) Index</option><option>Volatility 25 Index</option><option>Volatility 25 (1s) Index</option><option>Volatility 50 Index</option><option>Volatility 50 (1s) Index</option><option>Volatility 75 Index</option><option>Volatility 75 (1s) Index</option><option>Volatility 100 Index</option><option>Volatility 100 (1s) Index</option></select><div class="helper">Illustrative market list only; availability is not checked.</div></div>
+            <div class="field"><label for="duration">Duration (seconds)</label><input id="duration" type="number" min="1" max="3600" value="5" inputmode="numeric" /><div class="helper">Enter 1–3,600 seconds</div></div>
+            <div class="field"><label for="stake">Demo stake (USD)</label><input id="stake" type="number" min="0.35" max="1000" step="0.01" value="1" inputmode="decimal" /></div>
+          </div>
+          <div class="divider"></div>
+          <div class="step-label"><span class="step-number">2</span> Digit contract type</div>
+          <div class="contract-buttons" role="group" aria-label="Digit contract type">
+            <button type="button" class="selected" data-contract="Over">Over</button><button type="button" data-contract="Under">Under</button><button type="button" data-contract="Even">Even</button><button type="button" data-contract="Odd">Odd</button><button type="button" data-contract="Matches">Matches</button><button type="button" data-contract="Differs">Differs</button>
+          </div>
+          <div class="field" id="predictionField" style="margin-top:14px"><label for="prediction">Prediction digit (0–9)</label><select id="prediction"><option>0</option><option>1</option><option>2</option><option>3</option><option>4</option><option>5</option><option>6</option><option>7</option><option>8</option><option>9</option></select><div class="helper" id="predictionHelp">Select a barrier digit for this contract.</div></div>
+          <div class="preview"><div class="preview-top">SIMULATION PREVIEW · NOT A LIVE QUOTE</div><div class="preview-main"><span id="previewText">Over 0 · 5 seconds</span><strong id="previewStake">$1.00 demo stake</strong></div></div>
+          <div class="action-row"><button class="button button-primary" id="runButton" type="button">▶ &nbsp;Run simulation</button><button class="button button-stop" id="stopButton" type="button" disabled>Stop</button></div>
+          <div class="run-status" id="status" aria-live="polite">Ready for a paper simulation.</div>
+        </div>
+      </section>
+      <div class="right-col">
+        <section class="card chart-card" aria-label="Illustrative simulated chart">
+          <div class="card-head chart-top"><div><div class="symbol" id="symbolName">Volatility 10 Index <small>Illustrative chart · no live feed</small></div></div><span class="live-label"><i class="dot" style="background:#d59c2c"></i> SIMULATED</span></div>
+          <div class="chart-area"><svg viewBox="0 0 720 190" preserveAspectRatio="none" role="img" aria-label="Decorative simulated price line chart"><defs><linearGradient id="fade" x1="0" x2="0" y1="0" y2="1"><stop offset="0" stop-color="#b33238" stop-opacity=".15"/><stop offset="1" stop-color="#b33238" stop-opacity="0"/></linearGradient></defs><path class="chart-grid" d="M0 25H720M0 70H720M0 115H720M0 160H720"/><path class="chart-fill" d="M0 126 L35 116 L72 128 L110 91 L148 103 L184 73 L220 87 L258 59 L296 78 L333 46 L370 65 L409 50 L446 83 L481 65 L518 95 L555 72 L592 89 L629 47 L666 63 L700 38 L720 44 L720 190 L0 190Z"/><path class="chart-line" d="M0 126 L35 116 L72 128 L110 91 L148 103 L184 73 L220 87 L258 59 L296 78 L333 46 L370 65 L409 50 L446 83 L481 65 L518 95 L555 72 L592 89 L629 47 L666 63 L700 38 L720 44"/></svg></div>
+          <div class="chart-labels"><span>−60s</span><span>−45s</span><span>−30s</span><span>−15s</span><span>Now</span></div>
+          <div class="market-stats"><div class="stat"><span>Selected market</span><strong id="statMarket">Volatility 10</strong></div><div class="stat"><span>Contract duration</span><strong id="statDuration">5 seconds</strong></div><div class="stat"><span>Last demo digit</span><strong id="lastDigit">—</strong></div></div>
+        </section>
+        <section class="card builder-card">
+          <div class="card-head"><div><h2 class="card-title">Strategy blocks</h2><div class="card-subtitle">A visual outline of your current demo rules</div></div><span class="market-tag">PAPER RULES</span></div>
+          <div class="card-body"><div class="builder-grid">
+            <div class="block-group"><div class="block-heading">1. TRADE PARAMETERS</div><div class="block-content"><div class="logic-block"><b>Market</b><span class="value" id="blockMarket">Volatility 10</span></div><div class="logic-block"><b>Contract</b><span class="value" id="blockContract">Over</span></div><div class="logic-block"><b>Duration</b><span class="value" id="blockDuration">5 seconds</span></div><div class="logic-block"><b>Demo stake</b><span class="value" id="blockStake">$1.00</span></div><button class="add-block" id="addRule" type="button">＋ Add a demo rule</button></div></div>
+            <div class="block-group"><div class="block-heading">2. RESTART CONDITIONS</div><div class="block-content"><div class="logic-block"><b>If result is</b><span class="value">Win</span></div><div class="logic-block"><b>Then</b><span class="value">Keep demo stake</span></div><div class="logic-block"><b>If result is</b><span class="value">Loss</span></div><div class="logic-block"><b>Then</b><span class="value">Pause and review</span></div><div class="helper">No automatic orders or real-money actions are available.</div></div></div>
+          </div></div>
+        </section>
+      </div>
+    </div>
+    <section class="card activity" aria-labelledby="activity-title"><div class="card-head"><div><h2 class="card-title" id="activity-title">Demo activity</h2><div class="card-subtitle">Local simulation history for this page session</div></div><button type="button" class="button button-secondary" id="clearActivity" style="padding:8px 11px">Clear history</button></div><div class="activity-list" id="activityList"><div class="empty">No simulations yet. Configure a strategy and run a demo.</div></div></section>
+    <div class="footer-note">Vii Trader is an independent demo concept. It is not affiliated with or endorsed by Deriv. Simulated outcomes are random and do not represent real prices, quotes, or expected returns.</div>
+  </main>
+  <div class="mobile-run"><button class="button button-primary" id="mobileRun" type="button">▶ &nbsp;Run simulation</button><button class="button button-stop" id="mobileStop" type="button" disabled>Stop</button></div>
+  <script>
+    (() => {
+      const $ = id => document.getElementById(id);
+      const market = $('market'), duration = $('duration'), stake = $('stake'), prediction = $('prediction');
+      let contract = 'Over', running = false, timeout = null, history = [], balance = 10000;
+      const shortMarket = value => value.replace(' Index','');
+      function update() {
+        const seconds = Math.max(1, Number(duration.value) || 1);
+        const amount = Math.max(0, Number(stake.value) || 0);
+        const digit = Number(prediction.value);
+        const needsDigit = ['Over','Under','Matches','Differs'].includes(contract);
+        $('predictionField').style.display = needsDigit ? '' : 'none';
+        $('previewText').textContent = `${contract}${needsDigit ? ` ${digit}` : ''} · ${seconds} second${seconds === 1 ? '' : 's'}`;
+        $('previewStake').textContent = `$${amount.toFixed(2)} demo stake`;
+        $('symbolName').innerHTML = `${market.value}<small>Illustrative chart · no live feed</small>`;
+        $('statMarket').textContent = shortMarket(market.value);
+        $('statDuration').textContent = `${seconds} second${seconds === 1 ? '' : 's'}`;
+        $('blockMarket').textContent = shortMarket(market.value);
+        $('blockContract').textContent = `${contract}${needsDigit ? ` ${digit}` : ''}`;
+        $('blockDuration').textContent = `${seconds}s`;
+        $('blockStake').textContent = `$${amount.toFixed(2)}`;
+      }
+      document.querySelectorAll('[data-contract]').forEach(button => button.addEventListener('click', () => {
+        contract = button.dataset.contract;
+        document.querySelectorAll('[data-contract]').forEach(item => { item.classList.toggle('selected', item === button); item.setAttribute('aria-pressed', item === button ? 'true' : 'false'); });
+        update();
+      }));
+      [market,duration,stake,prediction].forEach(el => el.addEventListener('input', update));
+      market.addEventListener('change', update);
+      function setRunning(value) {
+        running = value;
+        $('runButton').disabled = $('mobileRun').disabled = value;
+        $('stopButton').disabled = $('mobileStop').disabled = !value;
+        $('status').textContent = value ? 'Simulating locally…' : 'Ready for a paper simulation.';
+        $('status').classList.toggle('running', value);
+      }
+      function renderHistory() {
+        const list = $('activityList');
+        if (!history.length) { list.innerHTML = '<div class="empty">No simulations yet. Configure a strategy and run a demo.</div>'; return; }
+        list.innerHTML = history.map(item => `<div class="activity-row"><div><div class="activity-name">${item.contract} · ${item.market}</div><div class="activity-meta">${item.time} · ${item.duration}s · simulated last digit ${item.digit}</div></div><span class="market-tag">${item.outcome}</span><span class="result ${item.win ? 'win' : 'loss'}">${item.win ? '+' : '−'}$${item.pnl.toFixed(2)}</span></div>`).join('');
+      }
+      function run() {
+        if (running) return;
+        const seconds = Number(duration.value), amount = Number(stake.value);
+        if (!Number.isFinite(seconds) || seconds < 1 || seconds > 3600) { $('status').textContent = 'Choose a duration from 1 to 3,600 seconds.'; duration.focus(); return; }
+        if (!Number.isFinite(amount) || amount < .35 || amount > 1000) { $('status').textContent = 'Choose a demo stake from $0.35 to $1,000.'; stake.focus(); return; }
+        setRunning(true);
+        timeout = window.setTimeout(() => {
+          if (!running) return;
+          const digit = Math.floor(Math.random() * 10);
+          $('lastDigit').textContent = digit;
+          const target = Number(prediction.value);
+          const win = contract === 'Even' ? digit % 2 === 0 : contract === 'Odd' ? digit % 2 === 1 : contract === 'Matches' ? digit === target : contract === 'Differs' ? digit !== target : contract === 'Over' ? digit > target : digit < target;
+          // Illustrative random demo accounting only; no quote or market data is used.
+          const pnl = win ? Number((amount * .8).toFixed(2)) : amount;
+          balance = Math.max(0, balance + (win ? pnl : -pnl));
+          $('balance').textContent = `Demo balance: $${balance.toLocaleString('en-US',{minimumFractionDigits:2,maximumFractionDigits:2})}`;
+          history.unshift({contract: `${contract}${['Over','Under','Matches','Differs'].includes(contract) ? ` ${target}` : ''}`, market: shortMarket(market.value), duration: seconds, digit, outcome: win ? 'Demo win' : 'Demo loss', win, pnl, time: new Date().toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})});
+          history = history.slice(0, 8); renderHistory();
+          setRunning(false); $('status').textContent = `${win ? 'Demo win' : 'Demo loss'} — simulated only, not a live trade.`;
+        }, 1200);
+      }
+      function stop() { if (timeout) window.clearTimeout(timeout); timeout = null; setRunning(false); $('status').textContent = 'Simulation stopped. No trade was placed.'; }
+      $('runButton').addEventListener('click', run); $('mobileRun').addEventListener('click', run);
+      $('stopButton').addEventListener('click', stop); $('mobileStop').addEventListener('click', stop);
+      $('resetButton').addEventListener('click', () => { market.selectedIndex=0; duration.value='5'; stake.value='1'; prediction.value='0'; contract='Over'; document.querySelectorAll('[data-contract]').forEach(b=>b.classList.toggle('selected',b.dataset.contract==='Over')); update(); });
+      $('clearActivity').addEventListener('click', () => { history=[]; renderHistory(); });
+      $('addRule').addEventListener('click', () => { $('status').textContent='Demo rule added: pause after a result and review before continuing.'; });
+      update();
+    })();
+  </script>
+</body>
+</html>
